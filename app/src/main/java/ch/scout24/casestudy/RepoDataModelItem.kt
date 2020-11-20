@@ -1,7 +1,5 @@
 package ch.scout24.casestudy
 
-class RepoDataModel : ArrayList<RepoDataModelItem>()
-
 data class RepoDataModelItem(
     val archive_url: String,
     val archived: Boolean,
@@ -57,7 +55,6 @@ data class RepoDataModelItem(
     val open_issues: Int,
     val open_issues_count: Int,
     val owner: Owner,
-    val `private`: Boolean,
     val pulls_url: String,
     val pushed_at: String,
     val releases_url: String,
@@ -77,6 +74,7 @@ data class RepoDataModelItem(
     val watchers: Int,
     val watchers_count: Int
 )
+
 
 data class License(
     val key: String,

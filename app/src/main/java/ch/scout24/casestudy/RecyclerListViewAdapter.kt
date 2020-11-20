@@ -5,9 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerListViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerListViewAdapter(val onRepoClicked: OnRepoClicked) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var repoList: List<RepoDataModel> = listOf()
+    var repoList: List<RepoDataModelItem> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView: View =
@@ -16,13 +17,17 @@ class RecyclerListViewAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() 
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val repoDataModel: RepoDataModel? = repoList.get(position)
+        val repoDataModelItem: RepoDataModelItem = repoList.get(position)
 
         val repoListItemHolder: RepoListItemHolder = holder as RepoListItemHolder
-        repoDataModel?.let { repoListItemHolder.setListItem(it[position]) }
+        repoListItemHolder.setListItem(repoDataModelItem)
+
+        repoListItemHolder.itemView.setOnClickListener { v ->
+            onRepoClicked.onRepoClicked(repoDataModelItem)
+        }
     }
 
-    fun setListOfRepos(repoDataModelList: List<RepoDataModel>) {
+    fun setListOfRepos(repoDataModelList: List<RepoDataModelItem>) {
         repoList = repoDataModelList
         notifyDataSetChanged()
     }

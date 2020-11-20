@@ -3,40 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/outer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
 
     <TextView
-        android:id="@+id/labelId"
+        android:id="@+id/labelTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:text="labelId"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textIsSelectable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/valueId"
+        android:id="@+id/valueTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="ValueId"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textIsSelectable="false"
-        app:layout_constraintStart_toStartOf="@+id/labelId"
-        app:layout_constraintTop_toBottomOf="@+id/labelId" />
+        app:layout_constraintStart_toStartOf="@+id/labelTitle"
+        app:layout_constraintTop_toBottomOf="@+id/labelTitle" />
 
 
     <TextView
-        android:id="@+id/labelNodeId"
+        android:id="@+id/labelLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="labelNodeId"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textIsSelectable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,40 +43,39 @@
 
 
     <TextView
-        android:id="@+id/valueNodeId"
+        android:id="@+id/valueLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:maxLength="10"
         android:text="valueNodeId"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textIsSelectable="false"
-        app:layout_constraintStart_toStartOf="@+id/labelNodeId"
-        app:layout_constraintTop_toBottomOf="@+id/labelNodeId" />
+        app:layout_constraintStart_toStartOf="@+id/labelLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/labelLanguage" />
 
 
     <TextView
-        android:id="@+id/labelName"
+        android:id="@+id/labelWatchers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:text="labelName"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textIsSelectable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        android:id="@+id/valueName"
+        android:id="@+id/valueWatchers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="valueName"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textIsSelectable="false"
-        app:layout_constraintStart_toStartOf="@+id/labelName"
-        app:layout_constraintTop_toBottomOf="@+id/labelName" />
+        app:layout_constraintStart_toStartOf="@+id/labelWatchers"
+        app:layout_constraintTop_toBottomOf="@+id/labelWatchers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
