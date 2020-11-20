@@ -10,7 +10,8 @@ import retrofit2.http.Headers
 interface RestApi {
 
     @Headers("Accept: application/json; charset=utf-8, Accept-Language: en")
-    @GET("repos?per_page=100&page=1")
+    //@GET("repos?per_page=100&page=1")
+    @GET("repos")
     suspend fun getRepos(): Response<List<RepoDataModelItem>>
 
     companion object {

@@ -46,14 +46,14 @@ class MainFragment : Fragment(R.layout.main_fragment), OnRepoClicked {
             setHasFixedSize(true)
         }
 
-        // Observing the repos for changes
+        // Observe the repositories
         viewModel.repoList.observe(viewLifecycleOwner, { repos ->
             repos?.apply {
                 recyclerListViewAdapter.setListOfRepos(repos)
             }
         })
 
-        // Beobachten ob ein Netzwerkproblem besteht
+        // Observe the network state
         viewModel.eventNetworkError.observe(
             viewLifecycleOwner, { isNetworkError ->
                 if (isNetworkError) onNetworkError()
