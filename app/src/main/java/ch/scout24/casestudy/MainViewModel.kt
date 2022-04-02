@@ -11,7 +11,9 @@ import java.io.IOException
 
 class MainViewModel constructor(app: Application) : AndroidViewModel(app) {
 
-    private val TAG = "MainViewModel"
+    companion object {
+        private const val TAG = "MainViewModel"
+    }
 
     private val repository: Repository = Repository()
 

@@ -17,7 +17,7 @@ class RecyclerListViewAdapter(val onRepoClicked: OnRepoClicked) :
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val repoDataModelItem: RepoDataModelItem = repoList.get(position)
+        val repoDataModelItem: RepoDataModelItem = repoList[position]
 
         val repoListItemHolder: RepoListItemHolder = holder as RepoListItemHolder
         repoListItemHolder.setListItem(repoDataModelItem)

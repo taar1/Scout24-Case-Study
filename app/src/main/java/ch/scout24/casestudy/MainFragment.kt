@@ -47,25 +47,22 @@ class MainFragment : Fragment(R.layout.main_fragment), OnRepoClicked {
         }
 
         // Observe the repositories
-        viewModel.repoList.observe(viewLifecycleOwner, { repos ->
+        viewModel.repoList.observe(viewLifecycleOwner) { repos ->
             repos?.apply {
                 recyclerListViewAdapter.setListOfRepos(repos)
             }
-        })
+        }
 
         // Observe the network state
-        viewModel.eventNetworkError.observe(
-            viewLifecycleOwner, { isNetworkError ->
-                if (isNetworkError) onNetworkError()
-            })
+        viewModel.eventNetworkError.observe(viewLifecycleOwner) { isNetworkError ->
+            if (isNetworkError) onNetworkError()
+        }
 
-        viewModel.isNetworkErrorShown.observe(
-            viewLifecycleOwner,
-            { isNetworkErrorShown ->
-                if (!isNetworkErrorShown) {
-                    viewBinding.recyclerView.visibility = View.VISIBLE
-                }
-            })
+        viewModel.isNetworkErrorShown.observe(viewLifecycleOwner) { isNetworkErrorShown ->
+            if (!isNetworkErrorShown) {
+                viewBinding.recyclerView.visibility = View.VISIBLE
+            }
+        }
 
         viewBinding.swipeRefresh.setOnRefreshListener {
             toggleRefreshingAnimation(true)
@@ -74,7 +71,7 @@ class MainFragment : Fragment(R.layout.main_fragment), OnRepoClicked {
         }
     }
 
-    fun toggleRefreshingAnimation(isRefreshing: Boolean) {
+    private fun toggleRefreshingAnimation(isRefreshing: Boolean) {
         viewBinding.swipeRefresh.isRefreshing = isRefreshing
     }
 
